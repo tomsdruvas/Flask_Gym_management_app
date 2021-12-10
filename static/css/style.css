@@ -156,26 +156,4 @@ button:hover {
     color:#fff
 }
 
-
-#myRange.slider {
-    -webkit-appearance: none;
-    width: 23.5vw;
-    height: 1vw;
-    background: #000;
-    outline: none;
-    border: 0.3vw solid lawngreen;
-    border-radius: 1vw;
-  }
-  
-  
-#myRange.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 1vw;
-    height: 3vw;
-    background: #000;
-    cursor: pointer;
-    border: 0.2vw solid lawngreen;
-    border-radius: 0.1vw;
-  }
   
