@@ -22,10 +22,26 @@
         </div>
         </div>
     <article>
-    <div class="show_info"><h3>Name:</h3><p>{{member.name}}</p></div>
-        <div class="show_info"><h3>Age:</h3><p>{{member.age}}</p></div>
-            <div class="show_info"><h3>Membership type:</h3><p>{{member.memb_type}}</p></div>
-    {% if member.memb_status %}
+    
+
+    <table>
+        <tr>
+          <th>Name:</th>
+          <td></td>
+          <td>{{member.name}}</td>
+        </tr>
+        <tr>
+          <th>Age:</th>
+          <td></td>
+          <td>{{member.age}}</td>
+        </tr>
+        <tr>
+          <th>Membership:</th>
+          <td></td>
+          <td>{{member.memb_type}}</td>
+        </tr>
+      </table>
+      {% if member.memb_status %}
     <p>Their membership status is active</p>
     {% else %}
     <p>This members membership is currently inactive, please go to Edit Member and select a membership type to reactivate it</p>
