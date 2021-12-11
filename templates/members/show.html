@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+<section>
+    <h2>Members Info</h2>
+    <p>{{member.name}}</p>
+    <hr>
+    <p>{{member.age}}</p>
+    <p>{{member.memb_type}}</p>
+    {% if member.memb_status %}
+    <p>Their membership status is active</p>
+    {% else %}
+    <p>Their membership status is inactive</p>
+    {% endif %}
+    <p>ADD EDIT</p>
+    <p>ADD DELETE</p>
+    <p>ADD VIEW CLASSES THEY ARE PART OF</p>
+    
+</section>
+
+
+  
+  {% endblock %}

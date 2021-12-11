@@ -10,6 +10,12 @@ def save(member):
     return member
 
 
+def update(member):
+    sql = "UPDATE members SET ( name, age, memb_type, memb_status ) = ( %s, %s, %s, %s ) WHERE id = %s"
+    values = [member.name, member.age, member.memb_type, member.memb_status, member.id]
+    print(values)
+    run_sql(sql, values)
+
 def select_all():
     members = []
 
@@ -36,6 +42,10 @@ def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM members WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def workouts(member):
     workouts = []

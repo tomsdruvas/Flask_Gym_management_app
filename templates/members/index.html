@@ -2,6 +2,33 @@
 
 {% block content %}
 
+<section>
+    <h2>Members List</h2>
+    {% for member in members %}
+    
+        
+        <div class="member_list">
+            <h3>   {{member.name}}</h3>
+            <div class="member_icons">
+    
+            <form action="/members/{{member.id}}"">
+            <button><i class="fas fa-info-circle fa-lg"></i></button>
+            </form>
+            <form action="/members/{{member.id}}/edit">
+            <button><i class="fas fa-edit fa-lg"></i></button>
+            </form>
+            <form action="/members/{{member.id}}/delete" method="POST">
+            <button><i class="fas fa-trash-alt fa-lg"></i></button>
+            </form>
+            </div>
+</div>
+
+    {% endfor %}
+    <a href="members/new"><i id="add_link" class="fas fa-user-plus fa-5x"></i></a>
+</section>
+
+
+
 
 
 {% endblock %}

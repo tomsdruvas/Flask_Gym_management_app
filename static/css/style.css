@@ -1,3 +1,20 @@
+body {
+    font-size: 1vw;
+    background: #457b9d;
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+}
+
+button {
+    background:none;
+    border:none;
+    padding:0;
+    outline:none;
+    cursor: pointer;
+}
+
+
+
 nav {
 	margin: 3vw auto 0;
 	width: 29.5vw;
@@ -8,6 +25,7 @@ nav {
 	font-size: 0;
     font-family:'Montserrat',sans-serif;
 }
+
 nav a {
 	line-height: 4vw;
 	height: 100%;
@@ -72,12 +90,6 @@ nav .start-contact, a:nth-child(5):hover~.animation {
 	background-color: #e67e22;
 } */
 
-body {
-	font-size: 1vw;
-	background: #457b9d;
-    margin:0;
-    font-family:'Montserrat',sans-serif;
-}
 
 
 
@@ -86,7 +98,7 @@ body {
 
 .form {
     width:27vw;
-    height:40vw;
+    /* height:40vw; */
     background:#e6e6e6;
     border-radius:0.5vw;
     box-shadow:0vw 0vw 1vw -0.1vw #000;
@@ -98,6 +110,21 @@ body {
     position:relative
 }
 
+section {
+    width:27vw;
+    /* height:40vw; */
+    background:#e6e6e6;
+    border-radius:0.5vw;
+    box-shadow:0vw 0vw 1vw -0.1vw #000;
+    margin:5vw auto;
+    padding:2vw 2vw;
+    max-width:30vw;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+    position:relative;
+    display:flex;
+    flex-direction: column
+}
 
 
 
@@ -138,10 +165,12 @@ p:before {
     font-size:1vw;
     color:#5a5a5a}
 
-button {
+#button_submit {
     float:right;
     padding:0.7vw 1.1vw;
     margin:0.7vw;
+    position: relative;
+    bottom: 2vw;
     font-family:'Montserrat',sans-serif;
     font-size: 1vw;
     border:0.2vw solid #78788c;
@@ -151,9 +180,47 @@ button {
     transition:all .3s}
 
 
-button:hover {
+#button_submit:hover {
     background:#78788c;
     color:#fff
 }
+
+
+#add_link {
+    position:relative;
+    left: 17vw;
+    top: 1vw;
+    color: #000;
+}
+
+#add_link {
+    position:relative;
+    left: 17vw;
+    top: 1vw;
+}
+
+
+.member_list {
+    display: flex;
+    /* border-style: double; */
+    justify-content: space-between;
+    align-items:baseline;
+    flex-direction: row;
+
+}
+
+.member_icons {
+    /* border-style: double; */
+    display: flex;
+    width: 6vw;
+    justify-content: space-between;
+    align-items:baseline;
+
+
+    
+}
+
+
+
 
   

@@ -49,3 +49,5 @@ import repositories.workout_repository as workout_repository
 
 # member3 = Member("Duncan", 23, "Standard", True)
 # member_repository.save(member3)
+
+member_repository.delete(17)
