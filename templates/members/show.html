@@ -6,20 +6,32 @@
 
 
 <section>
-    <h2>Members Info</h2>
-    <p>{{member.name}}</p>
-    <hr>
-    <p>{{member.age}}</p>
-    <p>{{member.memb_type}}</p>
+
+
+    <div class="member_list">
+        <h2>Members Info</h2>
+        <div class="member_icons_show">
+
+       
+        <form action="/members/{{member.id}}/edit">
+        <button><i class="fas fa-edit fa-lg"></i></button>
+        </form>
+        <form action="/members/{{member.id}}/delete" method="POST">
+        <button><i class="fas fa-trash-alt fa-lg"></i></button>
+        </form>
+        </div>
+        </div>
+    <article>
+    <div class="show_info"><h3>Name:</h3><p>{{member.name}}</p></div>
+        <div class="show_info"><h3>Age:</h3><p>{{member.age}}</p></div>
+            <div class="show_info"><h3>Membership type:</h3><p>{{member.memb_type}}</p></div>
     {% if member.memb_status %}
     <p>Their membership status is active</p>
     {% else %}
-    <p>Their membership status is inactive</p>
+    <p>This members membership is currently inactive, please go to Edit Member and select a membership type to reactivate it</p>
     {% endif %}
-    <p>ADD EDIT</p>
-    <p>ADD DELETE</p>
     <p>ADD VIEW CLASSES THEY ARE PART OF</p>
-    
+    </article>
 </section>
 
 
