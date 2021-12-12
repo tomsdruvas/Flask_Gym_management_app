@@ -14,14 +14,14 @@ import repositories.workout_repository as workout_repository
 # member_repository.delete_all()
 
 
-member1 = Member("John", 20, "Premium", True)
-member2 = Member("Paul", 25, "Standard", True)
-workout1 = Workout("HIIT", 10, True)
-workout2 = Workout("Cardio", 12, False)
-member_repository.save(member1)
-member_repository.save(member2)
-workout_repository.save(workout1)
-workout_repository.save(workout2)
+# member1 = Member("John", 20, "Premium", True)
+# member2 = Member("Paul", 25, "Standard", True)
+# workout1 = Workout("HIIT", 10, True)
+workout2 = Workout("Cardio and weight", 12, False, 2)
+# member_repository.save(member1)
+# member_repository.save(member2)
+# workout_repository.save(workout1)
+workout_repository.update(workout2)
 
 
 # results = member_repository.select_all()
@@ -34,11 +34,11 @@ workout_repository.save(workout2)
 
 
 
-activity1 = Activity(workout1, member1)
-activity2 = Activity(workout2, member2)
+# activity1 = Activity(workout1, member1)
+# activity2 = Activity(workout2, member2)
 
-activity_repository.save(activity1)
-activity_repository.save(activity2)
+# activity_repository.save(activity1)
+# activity_repository.save(activity2)
 
 
 # results = activity_repository.select_all()
@@ -47,7 +47,7 @@ activity_repository.save(activity2)
 
 
 
-member3 = Member("Duncan", 23, "Standard", True)
-member_repository.save(member3)
+# member3 = Member("Duncan", 23, "Standard", True)
+# member_repository.save(member3)
 
 # member_repository.delete(17)
