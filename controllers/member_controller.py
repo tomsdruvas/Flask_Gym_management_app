@@ -30,7 +30,8 @@ def create_member():
 @members_blueprint.route("/members/<id>", methods=['GET'])
 def show_member(id):
     member = member_repository.select(id)
-    return render_template('members/show.html', member = member)
+    active_classes = member_repository.workouts(member)
+    return render_template('members/show.html', member = member, active_classes = active_classes)
 
 
 

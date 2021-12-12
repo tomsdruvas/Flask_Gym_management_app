@@ -39,15 +39,24 @@
           <th>Membership:</th>
           <td></td>
           <td>{{member.memb_type}}</td>
+          <tr>
+            <th>Membership status:</th>
+            <td></td>
+            <td>{% if member.memb_status %}Active{% else %}Inactive{% endif %}</td>
+          </tr>
         </tr>
       </table>
-      {% if member.memb_status %}
-    <p>Their membership status is active</p>
-    {% else %}
-    <p>This members membership is currently inactive, please go to Edit Member and select a membership type to reactivate it</p>
-    {% endif %}
-    <p>ADD VIEW CLASSES THEY ARE PART OF</p>
-    <p>ADD option to add them to a class</p>
+      <table>
+        <tr>
+        <th>This member is currently booked on the following classes:</th>
+      </tr>
+      
+        {% for workout in active_classes %}
+        <tr>
+        <td>{{workout.name}}</td>
+      </tr>
+    {% endfor %}
+      </table>
     <a href="../activities/{{member.id}}">Add this member to a class</a>
     </article>
 </section>
