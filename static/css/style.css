@@ -188,7 +188,7 @@ p:before {
 
 
 #button_submit_new {
-    /* float:right; */
+    float:right;
     padding:0.7vw 1.1vw;
     margin:0.7vw;
     position: relative;

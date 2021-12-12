@@ -38,7 +38,12 @@
         <tr>
           <th>Required membership:</th>
           <td></td>
-          <td>(INSERT REQUIRED MEMBERSHIP TYPE)</td>
+          {% if workout.prem_only == True %}
+            <td>Premium</td>
+          {% else %}
+          <td>Standard</td>
+          {% endif %}
+
         </tr>
       </table>
       <p>ADD IF THIS CLASS is FULL</p>
