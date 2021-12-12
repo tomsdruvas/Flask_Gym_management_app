@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<form action="/activities/{{ member.id }}" method="post" class="form">
+  <h2>Add {{member.name}} to a class</h2>
+  <p type="Class:"></p>
+    <select name="workout_id" id="later">
+      {% for workout in workouts %}
+      <option value="{{ workout.id }}">{{workout.name}}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <br>
+    <br>
+    <button id="button_submit" type="submit">Add Member to the class</button>
+</form>
+
+
+  
+{% endblock %}

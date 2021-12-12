@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.member import Member
+from models.activity import Activity
 import repositories.member_repository as member_repository
-from repositories.workout_repository import select
+import repositories.workout_repository as workout_repository
+import repositories.activity_repository as activity_repository
 
 members_blueprint = Blueprint("members", __name__)
 
@@ -52,10 +54,18 @@ def update_member(id):
     member_repository.update(member)
     return redirect('/members')
 
-
 @members_blueprint.route("/members/<id>/delete", methods=['POST'])
 def delete_member(id):
     member_repository.delete(id)
     return redirect('/members')
+
+
+# @members_blueprint.route("/members/activities", methods=["POST"])
+# def add_member_to_class_finish(id):
+#     workout = request.form['workout_id']
+#     member = member_repository.select(id).id
+#     new_activity = Activity(workout, member)
+#     activity_repository.save(new_activity)
+#     return redirect("/members/<id>/activities")
 
 
