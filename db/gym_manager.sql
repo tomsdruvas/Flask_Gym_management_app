@@ -14,7 +14,8 @@ CREATE TABLE members (
 CREATE TABLE workouts (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    capacity INT
+    capacity INT,
+    prem_only BOOLEAN
 );
 
 

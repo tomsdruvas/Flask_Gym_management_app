@@ -3,8 +3,8 @@ from models.workout import Workout
 from models.member import Member
 
 def save(workout):
-    sql = "INSERT INTO workouts(name, capacity) VALUES ( %s, %s ) RETURNING id"
-    values = [workout.name, workout.capacity]
+    sql = "INSERT INTO workouts(name, capacity, prem_only) VALUES ( %s, %s, %s ) RETURNING id"
+    values = [workout.name, workout.capacity, workout.prem_only]
     results = run_sql( sql, values )
     workout.id = results[0]['id']
     return workout
@@ -17,7 +17,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        workout = Workout(row['name'], row['capacity'], row['id'])
+        workout = Workout(row['name'], row['capacity'], row['prem_only'], row['id'])
         workouts.append(workout)
     return workouts
 
@@ -29,7 +29,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        workout = Workout(result['name'], result['capacity'], result['id'] )
+        workout = Workout(result['name'], result['capacity'], result['prem_only'], result['id'] )
     return workout
 
 

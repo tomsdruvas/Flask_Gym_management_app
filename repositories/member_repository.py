@@ -57,7 +57,7 @@ def workouts(member):
     results = run_sql(sql, values)
 
     for row in results:
-        workout = Workout(row['name'], row['capacity'], row['id'])
+        workout = Workout(row['name'], row['capacity'], row['prem_only'], row['id'])
         workouts.append(workout)
     return workouts
 

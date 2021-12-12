@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+<form action="/members" method="post" class="form">
+    <h2>Add a new member</h2>
+    <p type="Name:"><input type="text" name="name" placeholder="Insert new members name"></input></p>
+    <p type="Age:"><input name="age" placeholder="Insert members age"></input></p>
+    <p type="Membership type:"></p>
+    <select name="memb_type" id="later">
+        <option value="Premium">Premium</option>
+        <option value="Standard">Standard</option><br>
+      </select>
+      <button id="button_submit" type="submit">Add Member</button>
+  </form>
+
+
+  
+  {% endblock %}
