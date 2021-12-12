@@ -21,10 +21,9 @@ def new_workout():
 @workouts_blueprint.route("/workouts", methods=["POST"])
 def create_workout():
     name = request.form["name"]
-    age = request.form["age"]
-    memb_type = request.form["memb_type"]
-    memb_status = True
-    new_workout = Workout(name, age, memb_type, memb_status)
+    capacity = request.form["capacity"]
+    prem_required = request.form["prem_required"]    
+    new_workout = Workout(name, capacity, prem_required)
     workout_repository.save(new_workout)
     return redirect("/workouts")
 
@@ -38,9 +37,8 @@ def show_workout(id):
 @workouts_blueprint.route("/workouts/<id>/edit", methods=['GET'])
 def edit_workout(id):
     workout = workout_repository.select(id)
-    memb_status = workout_repository.select(id).memb_status
-    memb_type = workout_repository.select(id).memb_type
-    return render_template('workouts/edit.html', workout = workout, memb_status = memb_status, memb_type=memb_type)
+    prem_only = workout_repository.select(id).prem_only
+    return render_template('workouts/edit.html', workout = workout, prem_only = prem_only)
 
 @workouts_blueprint.route("/workouts/<id>", methods=['POST'])
 def update_workout(id):
