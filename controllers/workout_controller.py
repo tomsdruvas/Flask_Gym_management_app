@@ -43,13 +43,9 @@ def edit_workout(id):
 @workouts_blueprint.route("/workouts/<id>", methods=['POST'])
 def update_workout(id):
     name = request.form['name']
-    age = request.form['age']
-    memb_type = request.form['memb_type']
-    memb_status = True
-    if request.form['memb_type'] == "Inactive":
-        memb_status = False
-        memb_type = workout_repository.select(id).memb_type
-    workout = Workout(name, age, memb_type, memb_status, id)
+    capacity = request.form['capacity']
+    prem_only = request.form['prem_only']
+    workout = Workout(name, capacity, prem_only, id)
     workout_repository.update(workout)
     return redirect('/workouts')
 

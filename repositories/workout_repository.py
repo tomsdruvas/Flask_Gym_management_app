@@ -10,6 +10,14 @@ def save(workout):
     return workout
 
 
+
+def update(workout):
+    sql = "UPDATE workouts SET ( name, capacity, prem_only ) = ( %s, %s, %s ) WHERE id = %s"
+    values = [workout.name, workout.capacity, workout.prem_only, workout.id]
+    print(values)
+    run_sql(sql, values)
+
+
 def select_all():
     workouts = []
 
