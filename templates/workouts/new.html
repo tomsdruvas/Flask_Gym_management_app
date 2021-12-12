@@ -8,7 +8,7 @@
 <form action="/workouts" method="post" class="form">
     <h2>Add a new class</h2>
     <p type="Name:"><input type="text" name="name" placeholder="Insert new class name"></input></p>
-    <p type="Capacity:"><input name="capacity" placeholder="Insert class capacity"></input></p>
+    <p type="Capacity:"><input name="capacity" type="number" min="1" step="1" placeholder="Insert class capacity"></input></p>
     <p type="Membership type required:"></p>
     <select name="prem_required" id="later">
         <option value="True">Premium</option>

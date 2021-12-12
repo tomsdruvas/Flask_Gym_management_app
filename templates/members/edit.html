@@ -5,7 +5,7 @@
 <form action="/members/{{member.id}}" method="post" class="form">
     <h2>Edit member - {{member.name}}</h2>
     <p type="Name:"><input type="text" name="name" value="{{member.name}}"></input></p>
-    <p type="Age:"><input name="age" value="{{member.age}}"></input></p>
+    <p type="Age:"><input name="age" value="{{member.age}}" type="number" min="1" step="1"></input></p>
     <p type="Membership type:"></p>
     <select name="memb_type">
         {% if memb_type == "Premium" and memb_status == True %}
