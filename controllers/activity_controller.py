@@ -24,4 +24,4 @@ def add_member_to_class_finish(id):
     member = member_repository.select(id)
     new_activity = Activity(workout, member)
     activity_repository.save(new_activity)
-    return redirect("/members")
+    return redirect(f"/members/{id}")
