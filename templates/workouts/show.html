@@ -47,7 +47,17 @@
         </tr>
       </table>
       <p>ADD IF THIS CLASS is FULL</p>
-    <p>ADD VIEW MEMBERS THAT ARE COMING</p>
+    <table>
+      <tr>
+      <th>Members booked on the class:</th>
+    </tr>
+    
+      {% for members in members_going %}
+      <tr>
+      <td>{{members.name}}</td>
+    </tr>
+  {% endfor %}
+    </table>
     </article>
 </section>
 

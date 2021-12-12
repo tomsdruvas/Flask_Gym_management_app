@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from controllers.member_controller import members
 from models.activity import Activity
 from models.workout import Workout
 import repositories.activity_repository as activity_repository
@@ -31,7 +32,8 @@ def create_workout():
 def show_workout(id):
     workout = workout_repository.select(id)
     current_participants = len(workout_repository.members_in_class(workout))
-    return render_template('workouts/show.html', workout = workout, current_participants = current_participants)
+    members_going = workout_repository.members_in_class(workout)
+    return render_template('workouts/show.html', workout = workout, members_going = members_going, current_participants = current_participants)
 
 
 
