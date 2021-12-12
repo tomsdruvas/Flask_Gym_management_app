@@ -45,6 +45,11 @@ def delete_all():
     sql = "DELETE FROM workouts"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM workouts WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 
 def members_in_class(workout):
     members = []
