@@ -10,6 +10,12 @@
       <option value="{{ workout.id }}">{{workout.name}}</option>
       {% endfor %}
     </select>
+    {% if member.memb_type == "Premium" %}
+    <p>{{member.name}} is a Premium member, they can be added to all classes that have space in them.</p>
+    {% elif member.memb_type == "Standard" %}
+    <p>{{member.name}} is a Standard member, they can only be added to Standard classes that have space in them.</p>
+    {% endif %}
+
     <br>
     <br>
     <br>

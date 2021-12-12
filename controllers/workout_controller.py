@@ -30,7 +30,8 @@ def create_workout():
 @workouts_blueprint.route("/workouts/<id>", methods=['GET'])
 def show_workout(id):
     workout = workout_repository.select(id)
-    return render_template('workouts/show.html', workout = workout)
+    current_participants = len(workout_repository.members_in_class(workout))
+    return render_template('workouts/show.html', workout = workout, current_participants = current_participants)
 
 
 

@@ -5,7 +5,7 @@
 <form action="/workouts/{{workout.id}}" method="post" class="form">
   <h2>Edit class - {{workout.name}}</h2>
   <p type="Name:"><input type="text" name="name" value="{{workout.name}}"></input></p>
-  <p type="Age:"><input name="capacity" value="{{workout.capacity}}" type="number" min="1" step="1"></input></p>
+  <p type="Capacity:"><input name="capacity" value="{{workout.capacity}}" type="number" min="1" step="1"></input></p>
   <p type="Membership type:"></p>
   <select name="prem_only">
       {% if prem_only == True %}
