@@ -18,11 +18,21 @@ activities_blueprint = Blueprint("activities", __name__)
 def activities(id):
     member = member_repository.select(id)
     workouts = workout_repository.select_all()
-    # workout_dict = workouts
-    # for workout in workout_dict:
-    #     workout["fullness"] = workout_repository.members_in_class(workout['id'])
+    workout_dict = []
+    new_dict = {}
+    for workout in range(len(workouts)):
+        workout_id = workouts[workout]
+        fullness = len(workout_repository.members_in_class(workout_id))
+        new_dict["fullness"] = fullness
+        new_dict["name"] = workout_repository.select(workout_id.id).name
+        new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
+        new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
+        new_dict["id"] = workout_repository.select(workout_id.id).id
+        workout_dict.append(new_dict)
+        new_dict = {}
+        
 
-    return render_template("activity/new.html", member = member, workouts = workouts)
+    return render_template("activity/new.html", member = member, workout_dict = workout_dict)
 
 
 @activities_blueprint.route("/activities/<id>", methods=["POST"])

@@ -54,9 +54,27 @@ import repositories.workout_repository as workout_repository
 
 workouts = workout_repository.select_all()
 workout_dict = []
-for workout in workouts:
-    workout_dict.append(workout)
+new_dict = {}
+for workout in range(len(workouts)):
+    workout_id = workouts[workout]
+    fullness = len(workout_repository.members_in_class(workout_id))
+    new_dict["fullness"] = fullness
+    new_dict["name"] = workout_repository.select(workout_id.id).name
+    new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
+    new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
+    new_dict["id"] = workout_repository.select(workout_id.id).id
+    workout_dict.append(new_dict)
+    new_dict = {}
+    print(workout_dict)
+
+    
 
 
-print(workout_dict)
+# for workout in workouts:
+#     print(len(workout_repository.members_in_class(workout)))
+# print(workout_dict)
 
+# workout_dict = workouts
+#     # for x in workout_dict:
+#     #     workout_repository.members_in_class(x)
+#     #     x["fullness"] = 
