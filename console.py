@@ -1,3 +1,4 @@
+from enum import _auto_null
 import pdb
 
 from models.workout import Workout
@@ -50,30 +51,44 @@ import repositories.workout_repository as workout_repository
 # member3 = Member("Duncan", 23, "Standard", True)
 # member_repository.save(member3)
 
-# member_repository.delete(17)
+# # member_repository.delete(17)
 
-workouts = workout_repository.select_all()
-workout_dict = []
-new_dict = {}
-for workout in range(len(workouts)):
-    workout_id = workouts[workout]
-    fullness = len(workout_repository.members_in_class(workout_id))
-    new_dict["fullness"] = fullness
-    new_dict["name"] = workout_repository.select(workout_id.id).name
-    new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
-    new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
-    new_dict["id"] = workout_repository.select(workout_id.id).id
-    workout_dict.append(new_dict)
-    new_dict = {}
-    # print(workout_dict)
+# workouts = workout_repository.select_all()
+# workout_dict = []
+# new_dict = {}
+# for workout in range(len(workouts)):
+#     workout_id = workouts[workout]
+#     fullness = len(workout_repository.members_in_class(workout_id))
+#     new_dict["fullness"] = fullness
+#     new_dict["name"] = workout_repository.select(workout_id.id).name
+#     new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
+#     new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
+#     new_dict["id"] = workout_repository.select(workout_id.id).id
+#     workout_dict.append(new_dict)
+#     new_dict = {}
+#     # print(workout_dict)
 
 
-only_standard = []
-for workout in workout_dict:
-    if workout["prem_only"] == True:
-        only_standard.append(workout)
-print(only_standard)
+# only_standard = []
+# for workout in workout_dict:
+#     if workout["prem_only"] == True:
+#         only_standard.append(workout)
+# print(only_standard)
 
+
+workout = 2
+member = 7
+all_activity = activity_repository.select_all()
+# print(all_activity[0].id)
+
+# for activity in range(len(all_activity)):
+#     print(all_activity[activity].member.name)
+
+
+
+for activity in range(len(all_activity)):
+    if all_activity[activity].member.id == member and all_activity[activity].workout.id == workout:
+        print(all_activity[activity].id)
 
     
 

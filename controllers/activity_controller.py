@@ -44,6 +44,11 @@ def add_member_to_class_finish(id):
     workout_id = request.form['workout_id']
     workout = workout_repository.select(workout_id)
     member = member_repository.select(id)
+    all_activity = activity_repository.select_all()
+    for activity in range(len(all_activity)):
+        if all_activity[activity].member.id == member.id and all_activity[activity].workout.id == workout.id:
+            return render_template("activity/error.html")
+
     new_activity = Activity(workout, member)
     activity_repository.save(new_activity)
     return redirect(f"/members/{id}")
