@@ -30,8 +30,12 @@ def activities(id):
         new_dict["id"] = workout_repository.select(workout_id.id).id
         workout_dict.append(new_dict)
         new_dict = {}
-        
-
+    if member.memb_type == "Standard":
+        only_standard = []
+        for workout in workout_dict:
+            if workout["prem_only"] == True:
+                only_standard.append(workout)
+        workout_dict = only_standard
     return render_template("activity/new.html", member = member, workout_dict = workout_dict)
 
 

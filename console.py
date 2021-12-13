@@ -65,7 +65,15 @@ for workout in range(len(workouts)):
     new_dict["id"] = workout_repository.select(workout_id.id).id
     workout_dict.append(new_dict)
     new_dict = {}
-    print(workout_dict)
+    # print(workout_dict)
+
+
+only_standard = []
+for workout in workout_dict:
+    if workout["prem_only"] == True:
+        only_standard.append(workout)
+print(only_standard)
+
 
     
 
