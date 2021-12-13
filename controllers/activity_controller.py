@@ -48,7 +48,36 @@ def add_member_to_class_finish(id):
     for activity in range(len(all_activity)):
         if all_activity[activity].member.id == member.id and all_activity[activity].workout.id == workout.id:
             return render_template("activity/error.html")
-
     new_activity = Activity(workout, member)
     activity_repository.save(new_activity)
     return redirect(f"/members/{id}")
+
+@activities_blueprint.route("/activities/<id>/delete/member", methods=['POST'])
+def delete_member_from_class(id):
+    member_id = request.form['member']
+    member = member_repository.select(member_id)
+    workout = workout_repository.select(id)
+    all_activity = activity_repository.select_all()
+    to_delete = None
+    for activity in range(len(all_activity)):
+        if all_activity[activity].member.id == member.id and all_activity[activity].workout.id == workout.id:
+            to_delete = all_activity[activity].id
+
+    activity_repository.delete(to_delete)
+    return redirect(f"/workouts/{id}")
+
+
+@activities_blueprint.route("/activities/<id>/delete/class", methods=['POST'])
+def delete_class_from_member(id):
+    workout_id = request.form['workout']
+    workout = workout_repository.select(workout_id)
+    member = member_repository.select(id)
+    all_activity = activity_repository.select_all()
+    to_delete = None
+    for activity in range(len(all_activity)):
+        if all_activity[activity].member.id == member.id and all_activity[activity].workout.id == workout.id:
+            to_delete = all_activity[activity].id
+
+    activity_repository.delete(to_delete)
+    return redirect(f"/members/{id}")
+

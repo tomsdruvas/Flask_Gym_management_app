@@ -47,13 +47,20 @@
         </tr>
       </table>
       <table>
+        <colgroup>
+          <col span="1" style="width: 10vw;">
+       </colgroup>
         <tr>
-        <th>This member is currently booked on the following classes:</th>
+        <th class="tg-0lax" colspan="2">This member is currently booked on the following classes:</th>
       </tr>
       
         {% for workout in active_classes %}
         <tr>
         <td>{{workout.name}}</td>
+        <td><form action="/activities/{{member.id}}/delete/class" method="POST">
+          <input type="hidden" name="workout" value="{{workout.id}}">
+          <button><i class="fas fa-trash-alt fa-sm"></i></button>
+          </form></td>
       </tr>
     {% endfor %}
       </table>
