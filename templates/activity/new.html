@@ -7,7 +7,11 @@
   <p type="Class:"></p>
     <select name="workout_id" id="later">
       {% for workout in workout_dict %}
+      {% if workout.fullness >=  workout.capacity %}
+      <option disabled value="{{ workout.id }}">{{workout.name}} {{workout.fullness}}/{{workout.capacity}} FULL</option>
+      {% else %}
       <option value="{{ workout.id }}">{{workout.name}} {{workout.fullness}}/{{workout.capacity}}</option>
+      {% endif %}
       {% endfor %}
     </select>
     {% if member.memb_type == "Premium" %}
