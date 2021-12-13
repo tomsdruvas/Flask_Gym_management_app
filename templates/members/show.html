@@ -57,7 +57,8 @@
       </tr>
     {% endfor %}
       </table>
-    <a href="../activities/{{member.id}}">Add this member to a class</a>
+    <form action="../activities/{{member.id}}" >
+      <button id="button_submit_new" type="submit">Add member to a class</button></form>
     </article>
 </section>
 

@@ -46,7 +46,12 @@
 
         </tr>
       </table>
-      <p>ADD IF THIS CLASS is FULL</p>
+      {% if current_participants >= workout.capacity %}
+      <p>This class is FULL</p>
+      {% else %}
+      <p>There are still {{workout.capacity - current_participants}} spaces left</p>
+      {% endif %}
+
     <table>
       <tr>
       <th>Members booked on the class:</th>

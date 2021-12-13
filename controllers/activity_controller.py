@@ -1,6 +1,10 @@
+import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.activity import Activity
+from db.run_sql import run_sql
+from models.workout import Workout
+from models.member import Member
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
 import repositories.workout_repository as workout_repository
@@ -14,6 +18,10 @@ activities_blueprint = Blueprint("activities", __name__)
 def activities(id):
     member = member_repository.select(id)
     workouts = workout_repository.select_all()
+    # workout_dict = workouts
+    # for workout in workout_dict:
+    #     workout["fullness"] = workout_repository.members_in_class(workout['id'])
+
     return render_template("activity/new.html", member = member, workouts = workouts)
 
 

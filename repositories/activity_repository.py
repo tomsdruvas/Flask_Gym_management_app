@@ -33,3 +33,4 @@ def delete(id):
     sql = "DELETE FROM activities WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+

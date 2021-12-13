@@ -7,7 +7,7 @@
   <p type="Class:"></p>
     <select name="workout_id" id="later">
       {% for workout in workouts %}
-      <option value="{{ workout.id }}">{{workout.name}}</option>
+      <option value="{{ workout.id }}">{{workout.name}} /{{workout.capacity}}</option>
       {% endfor %}
     </select>
     {% if member.memb_type == "Premium" %}

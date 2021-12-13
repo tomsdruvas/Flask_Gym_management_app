@@ -107,7 +107,9 @@ nav .start-contact, a:nth-child(5):hover~.animation {
     max-width:30vw;
     box-sizing:border-box;
     font-family:'Montserrat',sans-serif;
-    position:relative
+    position:relative;
+    display:flex;
+    flex-direction: column
 }
 
 section {
@@ -170,7 +172,7 @@ p:before {
     padding:0.7vw 1.1vw;
     margin:0.7vw;
     position: relative;
-    bottom: 2vw;
+    top:1vw;
     font-family:'Montserrat',sans-serif;
     font-size: 1vw;
     border:0.2vw solid #78788c;

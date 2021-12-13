@@ -17,11 +17,11 @@ import repositories.workout_repository as workout_repository
 # member1 = Member("John", 20, "Premium", True)
 # member2 = Member("Paul", 25, "Standard", True)
 # workout1 = Workout("HIIT", 10, True)
-workout2 = Workout("Cardio and weight", 12, False, 2)
+# workout2 = Workout("Cardio and weight", 12, False, 2)
 # member_repository.save(member1)
 # member_repository.save(member2)
 # workout_repository.save(workout1)
-workout_repository.update(workout2)
+# workout_repository.update(workout2)
 
 
 # results = member_repository.select_all()
@@ -51,3 +51,12 @@ workout_repository.update(workout2)
 # member_repository.save(member3)
 
 # member_repository.delete(17)
+
+workouts = workout_repository.select_all()
+workout_dict = []
+for workout in workouts:
+    workout_dict.append(workout)
+
+
+print(workout_dict)
+
