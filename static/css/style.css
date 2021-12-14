@@ -241,6 +241,14 @@ p:before {
     align-items:baseline;
 }
 
+.sort_icons {
+    /* border-style: double; */
+    display: flex;
+    width: 3vw;
+    justify-content: space-between;
+    align-items:baseline;
+}
+
 .member_icons_show {
     /* border-style: double; */
     display: flex;

@@ -4,6 +4,11 @@
 
 <section>
     <h2>Members List</h2>
+        <div class="sort_icons"><form action="/members/sorted/up" method="GET">
+        <button><i class="fas fa-sort-alpha-down fa-lg"></i></button></form>
+        <form action="/members/sorted/down" method="GET">
+        <button><i class="fas fa-sort-alpha-down-alt fa-lg"></i></button></form></div>
+        
     {% for member in members %}
     
         

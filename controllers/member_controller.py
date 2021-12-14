@@ -13,6 +13,16 @@ def members():
     members = member_repository.select_all()
     return render_template("members/index.html", members = members)
 
+@members_blueprint.route("/members/sorted/up", methods=['GET'])
+def members_sorted_up():
+    members = member_repository.select_all_up()
+    return render_template("members/index.html", members = members)
+
+@members_blueprint.route("/members/sorted/down", methods=['GET'])
+def members_sorted_down():
+    members = member_repository.select_all_down()
+    return render_template("members/index.html", members = members)
+
 @members_blueprint.route("/members/new")
 def new_member():
     return render_template("members/new.html")

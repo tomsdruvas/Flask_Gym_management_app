@@ -5,3 +5,4 @@ class Member:
         self.memb_type = memb_type
         self.memb_status = memb_status
         self.id = id
+    

@@ -26,6 +26,28 @@ def select_all():
         members.append(member)
     return members
 
+def select_all_up():
+    members = []
+
+    sql = "SELECT * FROM members \
+        ORDER BY name ASC"
+    results = run_sql(sql)
+    for row in results:
+        member = Member(row['name'], row['age'], row['memb_type'], row['memb_status'], row['id'])
+        members.append(member)
+    return members
+
+def select_all_down():
+    members = []
+
+    sql = "SELECT * FROM members \
+        ORDER BY name DESC"
+    results = run_sql(sql)
+    for row in results:
+        member = Member(row['name'], row['age'], row['memb_type'], row['memb_status'], row['id'])
+        members.append(member)
+    return members
+
 
 def select(id):
     member = None
