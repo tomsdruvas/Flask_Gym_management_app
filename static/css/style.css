@@ -102,7 +102,7 @@ nav .start-contact, a:nth-child(5):hover~.animation {
     background:#e6e6e6;
     border-radius:0.5vw;
     box-shadow:0vw 0vw 1vw -0.1vw #000;
-    margin:3vw auto;
+    margin:1vw auto;
     padding:2vw 2vw;
     max-width:30vw;
     box-sizing:border-box;
@@ -127,6 +127,46 @@ section {
     display:flex;
     flex-direction: column
 }
+
+.error_box {
+    width:27vw;
+    /* height:5vw; */
+    background:#e6e6e6;
+    border-radius:0.5vw;
+    box-shadow:0vw 0vw 1vw -0.1vw #000;
+    margin:1vw auto;
+    padding:1vw 1vw;
+    max-width:30vw;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+    position:relative;
+    display:flex;
+    flex-direction: column
+}
+
+#close_error {
+    /* border-style: solid; */
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    width:5vw;
+}
+
+.error_text {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    /* border: solid; */
+    width: 20vw
+}
+
+#cross_and_h3 {
+    display: flex;
+}
+
+
 
 
 
@@ -272,6 +312,8 @@ table {
     text-align: left;
 }
 
+#stats_table {
+    text-align: left;
+    width: 15vw;
+}
 
-
-  

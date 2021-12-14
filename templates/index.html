@@ -3,8 +3,49 @@
 {% block content %}
 
 <section>
-<h1>Gym Admin</h1>
+<h2>Gym Stats</h2>
 
-<p>Get your gym managed</p>
+<table id="stats_table">
+    <thead>
+      <tr>
+        <th>Member count:</th>
+        <td>{{ member_count }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Premium:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Standard:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Number of classes:</th>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total free spaces:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Premium free:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Standard free:</td>
+        <td></td>
+      </tr>
+    </tbody>
+    </table>
+
+
+
+
+
+
+
+
 </section>
 {% endblock %}

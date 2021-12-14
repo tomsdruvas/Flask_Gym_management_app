@@ -41,13 +41,33 @@ def activities(id):
 
 @activities_blueprint.route("/activities/<id>", methods=["POST"])
 def add_member_to_class_finish(id):
+    member = member_repository.select(id)
     workout_id = request.form['workout_id']
     workout = workout_repository.select(workout_id)
-    member = member_repository.select(id)
+    workout_name = workout_repository.select(workout_id).name
     all_activity = activity_repository.select_all()
     for activity in range(len(all_activity)):
         if all_activity[activity].member.id == member.id and all_activity[activity].workout.id == workout.id:
-            return render_template("activity/error.html")
+            workouts = workout_repository.select_all()
+            workout_dict = []
+            new_dict = {}
+            for workout in range(len(workouts)):
+                workout_id = workouts[workout]
+                fullness = len(workout_repository.members_in_class(workout_id))
+                new_dict["fullness"] = fullness
+                new_dict["name"] = workout_repository.select(workout_id.id).name
+                new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
+                new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
+                new_dict["id"] = workout_repository.select(workout_id.id).id
+                workout_dict.append(new_dict)
+                new_dict = {}
+            if member.memb_type == "Standard":
+                only_standard = []
+                for workout in workout_dict:
+                    if workout["prem_only"] == False:
+                        only_standard.append(workout)
+                workout_dict = only_standard
+            return render_template("activity/error.html", member = member, workout_dict = workout_dict, workout_name = workout_name)
     new_activity = Activity(workout, member)
     activity_repository.save(new_activity)
     return redirect(f"/members/{id}")
