@@ -20,9 +20,14 @@ def home():
     member_count = len(members)
     premium_count = 0
     for member in members:
-        if member.memb_type == True:
+        if member.memb_type == "Premium":
             premium_count += 1
-    return render_template('index.html', member_count = member_count)
+    classes = workout_repository.select_all()
+    class_count = len(classes)
+
+    
+
+    return render_template('index.html', member_count = member_count, premium_count = premium_count, class_count=class_count)
 
 if __name__ == '__main__':
     app.run(debug=True)
