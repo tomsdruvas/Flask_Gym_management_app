@@ -1,6 +1,6 @@
-from src.db.run_sql import run_sql
-from src.models.member import Member
-from src.models.workout import Workout
+from db.run_sql import run_sql
+from models.member import Member
+from models.workout import Workout
 
 def save(member):
     sql = "INSERT INTO members( name, age, memb_type, memb_status ) VALUES ( %s, %s, %s, %s ) RETURNING id"

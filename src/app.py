@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-from src.controllers.workout_controller import workouts_blueprint
-from src.controllers.member_controller import members_blueprint
-from src.controllers.activity_controller import activities_blueprint
-import src.repositories.activity_repository as activity_repository
-import src.repositories.member_repository as member_repository
-import src.repositories.workout_repository as workout_repository
+from controllers.workout_controller import workouts_blueprint
+from controllers.member_controller import members_blueprint
+from controllers.activity_controller import activities_blueprint
+import repositories.activity_repository as activity_repository
+import repositories.member_repository as member_repository
+import repositories.workout_repository as workout_repository
 
 
 
@@ -43,9 +43,9 @@ def home():
 
 
 
-@app.errorhandler(404)
-def not_found(error):
-    return render_template('error.html'), 404
+# @app.errorhandler(404)
+# def not_found(error):
+#     return render_template('error.html'), 404
 
 
 

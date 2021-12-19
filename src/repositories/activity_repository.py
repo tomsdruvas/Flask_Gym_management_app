@@ -1,7 +1,7 @@
-from src.db.run_sql import run_sql
-from src.models.activity import Activity
-import src.repositories.member_repository as member_repository
-import src.repositories.workout_repository as workout_repository
+from db.run_sql import run_sql
+from models.activity import Activity
+import repositories.member_repository as member_repository
+import repositories.workout_repository as workout_repository
 
 def save(activity):
     sql = "INSERT INTO activities ( workout_id, member_id ) VALUES ( %s, %s) RETURNING id"
