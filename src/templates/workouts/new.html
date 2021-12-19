@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+<form action="/workouts" method="post" class="form">
+    <h2>Add a new class</h2>
+    <p type="Name:"><input required type="text" name="name" placeholder="Insert new class name"></input></p>
+    <p type="Capacity:"><input required name="capacity" type="number" min="1" step="1" placeholder="Insert class capacity"></input></p>
+    <p type="Membership type required:"></p>
+    <select name="prem_required" id="later">
+        <option value="True">Premium</option>
+        <option value="False">Standard</option><br>
+      </select>
+      <button id="button_submit" type="submit">Add Member</button>
+  </form>
+
+
+  
+  {% endblock %}

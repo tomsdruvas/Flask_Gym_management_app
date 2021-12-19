@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<section>
+<form action="/activities/add_members/{{ workout.id }}" method="post">
+  <h2>Add members to a the {{workout.name}} class</h2>
+  <p type="Members:"></p>
+  <table>
+    
+    <tbody>
+      
+        {% for member in member_list %}
+        {% if member.already_in == False %}
+    <tr>
+        <td>{{member.name}}</td>
+        <td><input type="checkbox" name="chkbox" value="{{ member.id }}" class="larger"></td>
+    </tr>
+        {% elif member.already_in == True %}
+    <tr>
+        <td><strike>{{member.name}}</strike></td>
+        <td><input type="checkbox" disabled name="chkbox" value="{{ member.id }}" class="larger"></td>
+    </tr>
+        {% endif %}
+        {% endfor %}
+        
+      
+    </tbody>
+    </table>
+    <p>If you cannot click the checkbox, that means the member is already in the class</p>
+  
+   
+  
+    <button id="button_submit" type="submit">Add Members to the class</button>
+</form>
+</section>
+
+
+  
+{% endblock %}

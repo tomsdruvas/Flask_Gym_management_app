@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+<section>
+
+
+    <div class="member_list">
+        <h2>Class Info</h2>
+        <div class="member_icons_show">
+
+       
+        <form action="/workouts/{{workout.id}}/edit">
+        <button><i class="fas fa-edit fa-lg"></i></button>
+        </form>
+        <form action="/workouts/{{workout.id}}/delete" method="POST">
+        <button><i class="fas fa-trash-alt fa-lg"></i></button>
+        </form>
+        </div>
+        </div>
+    <article>
+    
+
+    <table>
+        <tr>
+          <th>Name:</th>
+          <td></td>
+          <td>{{workout.name}}</td>
+        </tr>
+        <tr>
+          <th>Capacity:</th>
+          <td></td>
+          <td>{{current_participants}}/{{workout.capacity}}</td>
+        </tr>
+        <tr>
+          <th>Required membership:</th>
+          <td></td>
+          {% if workout.prem_only == True %}
+            <td>Premium</td>
+          {% else %}
+          <td>Standard</td>
+          {% endif %}
+
+        </tr>
+      </table>
+      {% if current_participants >= workout.capacity %}
+      <p>This class is FULL</p>
+      {% else %}
+      <p>There are still {{workout.capacity - current_participants}} spaces left</p>
+      {% endif %}
+
+    <table>
+      <colgroup>
+        <col span="1" style="width: 10vw;">
+     </colgroup>
+      <tr>
+      <th class="tg-0lax" colspan="2">Members booked on the class:</th>
+    </tr>
+    
+      {% for members in members_going %}
+      <tr>
+      <td>{{members.name}}</td>
+        <td><form action="/activities/{{workout.id}}/delete/member" method="POST">
+          <input type="hidden" name="member" value="{{members.id}}">
+          <button><i class="fas fa-trash-alt fa-sm"></i></button>
+          </form></td>
+    </tr>
+  {% endfor %}
+    </table>
+    </article>
+    <form action="/activities/add_members/{{workout.id}}">
+    <button id="button_submit" type="submit">Add Members to this class</button>
+    </form>
+</section>
+
+
+  
+  {% endblock %}

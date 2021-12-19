@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<section>
+<h2>Gym Stats</h2>
+
+<table id="stats_table">
+    <thead>
+      <tr>
+        <th>Member count:</th>
+        <td>{{ member_count }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Premium:</td>
+        <td>{{premium_count}}</td>
+      </tr>
+      <tr>
+        <td>Standard:</td>
+        <td>{{ member_count - premium_count }}</td>
+      </tr>
+      <tr>
+        <th>Number of classes:</th>
+        <td>{{class_count}}</td>
+      </tr>
+      <tr>
+        <th>Total spaces:</th>
+        <td>{{total_space}}</td>
+      </tr>
+      <tr>
+        <td>Total members in classes:</td>
+        <td>{{fullness}}</td>
+      </tr>
+      <tr>
+        <td>Total free spaces:</td>
+        <td>{{total_space-fullness}}</td>
+      </tr>
+      <tr>
+        <td>Premium free:</td>
+        <td>{{total_prem_space - used_prem_space}}</td>
+      </tr>
+      <tr>
+        <td>Standard free:</td>
+        <td>{{total_space-fullness - (total_prem_space - used_prem_space)}}</td>
+      </tr>
+    </tbody>
+    </table>
+
+
+
+
+
+
+
+
+</section>
+{% endblock %}

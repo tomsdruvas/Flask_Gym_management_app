@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<form action="/workouts/{{workout.id}}" method="post" class="form">
+  <h2>Edit class - {{workout.name}}</h2>
+  <p type="Name:"><input required type="text" name="name" value="{{workout.name}}"></input></p>
+  <p type="Capacity:"><input required name="capacity" value="{{workout.capacity}}" type="number" min="1" step="1"></input></p>
+  <p type="Membership type:"></p>
+  <select name="prem_only">
+      {% if prem_only == True %}
+      <option value="True" selected >Premium</option>
+      <option value="False">Standard</option><br>
+      {% elif prem_only == False %}
+      <option value="True">Premium</option>
+      <option value="False" selected >Standard</option><br>
+      {% endif %}
+    </select>
+    <button id="button_submit" type="submit">Edit workout</button>
+    {% if prem_only == True %}
+    <p>This workout is for Premium members only</p>
+    {% else %}
+    <p>This workout is available to all Active members</p>
+    {% endif %}
+  </form>
+
+{% endblock %}
