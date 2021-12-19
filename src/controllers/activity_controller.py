@@ -1,13 +1,13 @@
 import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.activity import Activity
-from db.run_sql import run_sql
-from models.workout import Workout
-from models.member import Member
-import repositories.activity_repository as activity_repository
-import repositories.member_repository as member_repository
-import repositories.workout_repository as workout_repository
+from src.models.activity import Activity
+from src.db.run_sql import run_sql
+from src.models.workout import Workout
+from src.models.member import Member
+import src.repositories.activity_repository as activity_repository
+import src.repositories.member_repository as member_repository
+import src.repositories.workout_repository as workout_repository
 
 
 activities_blueprint = Blueprint("activities", __name__)

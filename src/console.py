@@ -1,4 +1,3 @@
-from enum import _auto_null
 import pdb
 
 from models.workout import Workout

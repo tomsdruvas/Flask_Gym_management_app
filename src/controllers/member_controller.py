@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.member import Member
-from models.activity import Activity
-import repositories.member_repository as member_repository
-import repositories.workout_repository as workout_repository
-import repositories.activity_repository as activity_repository
+from src.models.member import Member
+from src.models.activity import Activity
+import src.repositories.member_repository as member_repository
+import src.repositories.workout_repository as workout_repository
+import src.repositories.activity_repository as activity_repository
 
 members_blueprint = Blueprint("members", __name__)
 
