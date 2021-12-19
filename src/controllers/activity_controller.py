@@ -126,6 +126,26 @@ def add_members_finish(id):
     to_be_added = []
     members = member_repository.select_all()
     chkbox_values = request.form.getlist('chkbox')
+    len_of_to_be_added = len(chkbox_values)
+    members_already_in_class = len(workout_repository.members_in_class(workout))
+    free_space = workout.capacity - members_already_in_class
+    if free_space+1 <= len_of_to_be_added:
+        # workout = workout_repository.select(id)
+        # members = member_repository.select_all()
+        member_list = []
+        new_dict = {}
+        for member in range(len(members)):
+            member_id = members[member]
+            already_in = activity_repository.is_member_in_class(member_id.id, id)
+            new_dict["already_in"] = already_in
+            new_dict["name"] = member_repository.select(member_id.id).name
+            new_dict["age"] = member_repository.select(member_id.id).age
+            new_dict["memb_type"] = member_repository.select(member_id.id).memb_type
+            new_dict["memb_status"] = member_repository.select(member_id.id).memb_status
+            new_dict["id"] = member_repository.select(member_id.id).id
+            member_list.append(new_dict)
+            new_dict = {}
+        return render_template("activity/add_members_error.html", workout = workout, member_list=member_list, free_space=free_space, len_of_to_be_added=len_of_to_be_added )
     for member in chkbox_values:
         for y in members:
             if int(member) == int(y.id):
