@@ -3,9 +3,17 @@
 {% block content %}
 
 <section>
-    <h2>
-        List of classes
-    </h2>
+    <div class="member_list">
+        <h2>List of classes</h2>
+        <div class="member_icons_show">
+
+       
+        
+        <form action="/workouts/calendar">
+            <button><i class="fas fa-calendar-alt fa-3x"></i></button>
+        </form>
+        </div>
+        </div>
     {% for workout in workouts %}
     
         

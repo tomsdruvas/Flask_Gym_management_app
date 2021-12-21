@@ -58,4 +58,8 @@ def delete_workout(id):
     workout_repository.delete(id)
     return redirect('/workouts')
 
+@workouts_blueprint.route("/workouts/calendar")
+def calendar_view():
+    return render_template("workouts/calendar/index.html")
+
 
