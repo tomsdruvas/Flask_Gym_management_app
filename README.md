@@ -15,7 +15,7 @@ The web app is full-stack and it's built using Flask, Python, PostgreSQL, HTML a
 <img src="/planning_and_dev/class_list.png" width="400" > 
 
 # Viewing a gym class
-<img src="/planning_and_dev/class_view1.png" width="400" >
+<img src="/planning_and_dev/class_view.png" width="400" >
 
 # Members list
 <img src="/planning_and_dev/members_list.png" width="400" >
