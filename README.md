@@ -11,17 +11,27 @@ Solo project for the Python module at the Professional Software Development Boot
 The web app is full-stack and it's built using Flask, Python, PostgreSQL, HTML and CSS
 
 ## Pictures
+# A list of gym classes
 <img src="/planning_and_dev/class_list.png" width="400" > 
-<img src="/planning_and_dev/class_view.png" width="400" > 
+
+# Viewing a gym class
+<img src="/planning_and_dev/class_view1.png" width="400" >
+
+# Members list
 <img src="/planning_and_dev/members_list.png" width="400" >
+
+# Viewing a single member
 <img src="/planning_and_dev/member_view.png" width="400" >
+
+# Adding member to a class and error message if they are already part of it
+<img src="/planning_and_dev/error.png" width="400" >
+
+
+# Adding multiple people to the same gym class
+<img src="/planning_and_dev/add_multiple.png" width="400" >
+
+# Gym Stats
 <img src="/planning_and_dev/gym_stats1.png" width="400" >
-
-
-
-
-
-
 
 
 ## Project Description
