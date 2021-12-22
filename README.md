@@ -11,7 +11,7 @@ Solo project for the Python module at the Professional Software Development Boot
 The web app is full-stack and it's built using Flask, Python, PostgreSQL, HTML and CSS
 
 
-<img src="/planning_and_dev/class_list.png" width="200" > <img src="/planning_and_dev/members_list.png" width="200" >
+<img src="/planning_and_dev/class_list.png" width="500" >
 
 
 
