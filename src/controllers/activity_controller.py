@@ -21,18 +21,6 @@ def activities(id):
     for workout in workouts:
                 fullness = len(workout_repository.members_in_class(workout))
                 setattr(workout, "fullness", fullness)
-    # workout_dict = []
-    # new_dict = {}
-    # for workout in range(len(workouts)):
-    #     workout_id = workouts[workout]
-    #     fullness = len(workout_repository.members_in_class(workout_id))
-    #     new_dict["fullness"] = fullness
-    #     new_dict["name"] = workout_repository.select(workout_id.id).name
-    #     new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
-    #     new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
-    #     new_dict["id"] = workout_repository.select(workout_id.id).id
-    #     workout_dict.append(new_dict)
-    #     new_dict = {}
     if member.memb_type == "Standard":
         only_standard = []
         for workout in workouts:
@@ -55,18 +43,6 @@ def add_member_to_class_finish(id):
             for workout in workouts:
                 fullness = len(workout_repository.members_in_class(workout))
                 setattr(workout, "fullness", fullness)
-            # workout_dict = []
-            # new_dict = {}
-            # for workout in range(len(workouts)):
-            #     workout_id = workouts[workout]
-            #     fullness = len(workout_repository.members_in_class(workout_id))
-            #     new_dict["fullness"] = fullness
-            #     new_dict["name"] = workout_repository.select(workout_id.id).name
-            #     new_dict["capacity"] = workout_repository.select(workout_id.id).capacity
-            #     new_dict["prem_only"] = workout_repository.select(workout_id.id).prem_only
-            #     new_dict["id"] = workout_repository.select(workout_id.id).id
-            #     workout_dict.append(new_dict)
-            #     new_dict = {}
             if member.memb_type == "Standard":
                 only_standard = []
                 for workout in workouts:
@@ -112,20 +88,6 @@ def add_members(id):
     for member in members:
         already_in = activity_repository.is_member_in_class(member.id, id)
         setattr(member, "already_in", already_in)
-
-    # member_list = []
-    # new_dict = {}
-    # for member in range(len(members)):
-    #     member_id = members[member]
-    #     already_in = activity_repository.is_member_in_class(member_id.id, id)
-    #     new_dict["already_in"] = already_in
-    #     new_dict["name"] = member_repository.select(member_id.id).name
-    #     new_dict["age"] = member_repository.select(member_id.id).age
-    #     new_dict["memb_type"] = member_repository.select(member_id.id).memb_type
-    #     new_dict["memb_status"] = member_repository.select(member_id.id).memb_status
-    #     new_dict["id"] = member_repository.select(member_id.id).id
-    #     member_list.append(new_dict)
-    #     new_dict = {}
     return render_template("activity/add_members.html", workout = workout, member_list=members)
 
 @activities_blueprint.route("/activities/add_members/<id>", methods=['POST'])
