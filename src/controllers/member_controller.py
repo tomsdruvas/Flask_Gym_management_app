@@ -71,12 +71,4 @@ def delete_member(id):
     return redirect('/members')
 
 
-# @members_blueprint.route("/members/activities", methods=["POST"])
-# def add_member_to_class_finish(id):
-#     workout = request.form['workout_id']
-#     member = member_repository.select(id).id
-#     new_activity = Activity(workout, member)
-#     activity_repository.save(new_activity)
-#     return redirect("/members/<id>/activities")
-
 
