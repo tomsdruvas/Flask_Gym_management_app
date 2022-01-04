@@ -6,6 +6,8 @@
   <h2>Edit class - {{workout.name}}</h2>
   <p type="Name:"><input required type="text" name="name" value="{{workout.name}}"></input></p>
   <p type="Capacity:"><input required name="capacity" value="{{workout.capacity}}" type="number" min="1" step="1"></input></p>
+  <p type="Date and Time:"></p>
+  <input type="datetime-local" value="{{pre_display_time}}" name="class_time">  
   <p type="Membership type:"></p>
   <select name="prem_only">
       {% if prem_only == True %}

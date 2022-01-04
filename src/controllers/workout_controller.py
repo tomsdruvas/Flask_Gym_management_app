@@ -29,9 +29,9 @@ def new_workout():
 def create_workout():
     name = request.form["name"]
     capacity = request.form["capacity"]
-    prem_required = request.form["prem_required"]
+    prem_only = request.form["prem_only"]
     class_time = request.form["class_time"]
-    new_workout = Workout(name, capacity, prem_required, class_time)
+    new_workout = Workout(name, capacity, prem_only, class_time)
     workout_repository.save(new_workout)
     return redirect("/workouts")
 
@@ -48,14 +48,19 @@ def show_workout(id):
 def edit_workout(id):
     workout = workout_repository.select(id)
     prem_only = workout_repository.select(id).prem_only
-    return render_template('workouts/edit.html', workout = workout, prem_only = prem_only)
+    x = datetime.datetime.strptime(str(workout.class_time), "%Y-%m-%d %H:%M:%S")
+    display_class_time = x.strftime("%Y-%m-%dT%H:%M")
+    pre_display_time = display_class_time
+
+    return render_template('workouts/edit.html', workout = workout, prem_only = prem_only, pre_display_time=pre_display_time)
 
 @workouts_blueprint.route("/workouts/<id>", methods=['POST'])
 def update_workout(id):
     name = request.form['name']
     capacity = request.form['capacity']
     prem_only = request.form['prem_only']
-    workout = Workout(name, capacity, prem_only, id)
+    class_time = request.form["class_time"]
+    workout = Workout(name, capacity, prem_only, class_time, id)
     workout_repository.update(workout)
     return redirect('/workouts')
 
