@@ -17,6 +17,7 @@ app.register_blueprint(activities_blueprint)
 
 @app.route('/')
 def home():
+    total_space = 0
     members = member_repository.select_all()
     member_count = len(members)
     premium_count = 0

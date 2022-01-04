@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import datetime
 from flask import Blueprint
 from controllers.member_controller import members
 from models.activity import Activity
@@ -13,6 +14,11 @@ workouts_blueprint = Blueprint("workouts", __name__)
 @workouts_blueprint.route("/workouts")
 def workouts():
     workouts = workout_repository.select_all()
+    for workout in workouts:
+        datetime_object = str(workout.class_time)
+        x = datetime.datetime.strptime(datetime_object, "%Y-%m-%d %H:%M:%S")
+        display_class_time = x.strftime("%a, %d. %b %H:%M")
+        setattr(workout, "display_class_time", display_class_time)
     return render_template("workouts/index.html", workouts = workouts)
 
 @workouts_blueprint.route("/workouts/new")
@@ -23,8 +29,9 @@ def new_workout():
 def create_workout():
     name = request.form["name"]
     capacity = request.form["capacity"]
-    prem_required = request.form["prem_required"]    
-    new_workout = Workout(name, capacity, prem_required)
+    prem_required = request.form["prem_required"]
+    class_time = request.form["class_time"]
+    new_workout = Workout(name, capacity, prem_required, class_time)
     workout_repository.save(new_workout)
     return redirect("/workouts")
 

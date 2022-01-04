@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS activities;
+DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS workouts;
 
 
@@ -15,7 +15,8 @@ CREATE TABLE workouts (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     capacity INT,
-    prem_only BOOLEAN
+    prem_only BOOLEAN,
+    class_time TIMESTAMP
 );
 
 

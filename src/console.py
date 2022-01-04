@@ -3,6 +3,7 @@ import pdb
 from models.workout import Workout
 from models.activity import Activity
 from models.member import Member
+import datetime
 
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
@@ -75,9 +76,9 @@ import repositories.workout_repository as workout_repository
 # print(only_standard)
 
 
-workout = 2
-member = 7
-all_activity = activity_repository.select_all()
+# workout = 2
+# member = 7
+# all_activity = activity_repository.select_all()
 # print(all_activity[0].id)
 
 # for activity in range(len(all_activity)):
@@ -112,17 +113,17 @@ all_activity = activity_repository.select_all()
 
 # print(total_prem_space, used_prem_space)
 
-def is_member_in_class(member_id, workout_id):
-    workout = workout_repository.select(workout_id)
-    members = workout_repository.members_in_class(workout)
-    for member in members:
-        if member.id == member_id:
-            return True
-    return False
+# def is_member_in_class(member_id, workout_id):
+#     workout = workout_repository.select(workout_id)
+#     members = workout_repository.members_in_class(workout)
+#     for member in members:
+#         if member.id == member_id:
+#             return True
+#     return False
 
 # print(workout_repository.members_in_class(2))
 
-print(is_member_in_class(12, 2))
+# print(is_member_in_class(12, 2))
 
 
 
@@ -147,3 +148,12 @@ print(is_member_in_class(12, 2))
 #     # for x in workout_dict:
 #     #     workout_repository.members_in_class(x)
 #     #     x["fullness"] = 
+
+workouts = workout_repository.select_all()
+for workout in workouts:
+    datetime_object = str(workout.class_time)
+    x = datetime.datetime.strptime(datetime_object, "%Y-%m-%d %H:%M:%S")
+    display_class_time = x.strftime("%a, %d. %b %H:%M")
+    setattr(workout, "display_class_time", display_class_time)
+    
+
