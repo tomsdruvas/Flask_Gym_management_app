@@ -1,12 +1,16 @@
 import psycopg2
-import psycopg2.extras
+import psycopg2.extras as ext
+import os
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 def run_sql(sql, values = None):
     results = []
     conn = None
     try:
         # gym_manager
-        conn = psycopg2.connect("dbname='dcajkusmj4ika8'")
+        # conn = psycopg2.connect("dbname='postgresql-animate-23710'")
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cur.execute(sql, values)
         conn.commit()
