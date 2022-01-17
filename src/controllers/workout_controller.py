@@ -48,10 +48,10 @@ def show_workout(id):
 def edit_workout(id):
     workout = workout_repository.select(id)
     prem_only = workout_repository.select(id).prem_only
+    # Converting the times
     x = datetime.datetime.strptime(str(workout.class_time), "%Y-%m-%d %H:%M:%S")
     display_class_time = x.strftime("%Y-%m-%dT%H:%M")
     pre_display_time = display_class_time
-
     return render_template('workouts/edit.html', workout = workout, prem_only = prem_only, pre_display_time=pre_display_time)
 
 @workouts_blueprint.route("/workouts/<id>", methods=['POST'])
