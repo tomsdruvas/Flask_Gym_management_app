@@ -6,7 +6,7 @@ def run_sql(sql, values = None):
     conn = None
     try:
         # gym_manager
-        conn = psycopg2.connect("dbname='postgresql-animate-23710'")
+        conn = psycopg2.connect("dbname='dcajkusmj4ika8'")
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cur.execute(sql, values)
         conn.commit()
